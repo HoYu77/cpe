@@ -3,9 +3,9 @@ using namespace std;
 int main(){
     int q;
     cin>>q;
+    vector<int> num;
     while(q--){
         int x,y;
-        vector<int> num;
         cin>>y>>x;
         if(y==1){
             num.push_back(x);
@@ -15,14 +15,15 @@ int main(){
            num.erase(num.begin()+i);
         }
         else if(y==3){
-            for(int j=0;j<sizeof(num);j++){
+            bool found=false;
+            for(int j=0;j<num.size();j++){
                 if(x==num[j]){
-                    cout<<"Yes"<<endl;
-                }
-                else {
-                    cout<<"No"<<endl;
+                    found=true;
+                    break;
                 }
             }
+            if(found) cout<<"Yes"<<endl;
+            else cout<<"No"<<endl;
         }
     }
 }
