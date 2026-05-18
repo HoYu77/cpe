@@ -8,16 +8,18 @@ int main(){
         }
         else {
             int cnt=0;
+            int carry=0;
             while(a>0||b>0){
-                if(a%10+b%10>9){
-                    cnt+=1;
-                    a/=10;
-                    b/=10;
+                int sum=a%10+b%10+carry;
+                if(sum>=10){
+                   cnt++;
+                   carry=1;
                 }
                 else{
-                    a/=10;
-                    b/=10;
+                    carry=0;
                 }
+                a/=10;
+                b/=10;
             }
             if(cnt==0){
                 cout<<"No carry operation."<<endl;
