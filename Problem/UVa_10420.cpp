@@ -2,13 +2,14 @@
 #include<string>
 #include<vector>
 #include<algorithm>
+#include<map>
 using namespace std;
 int main(){
     int t;
     cin>>t;
-    vector<string> countries;
+    map<string,int> map;
     while(t--){
-        string country;
+        string country,name;
         cin>>country;
         string name;
         getline(cin,name);

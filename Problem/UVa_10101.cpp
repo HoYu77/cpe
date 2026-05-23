@@ -1,35 +1,39 @@
 #include<bits/stdc++.h>
 using namespace std;
+void solve(long long n){
+    if(n>=10000000){
+        solve(n/10000000);
+        cout<<" kuti";
+        n%=10000000;
+    }
+    if(n>=100000){
+        cout<<" "<<n/100000<<" lakh";
+        n%=100000;
+    }
+     if(n>=1000){
+        cout<<" "<<n/1000<<" hajar";
+        n%=1000;
+    }
+    if(n>=100){
+        cout<<" "<<n/100<<" shata";
+        n%=100;
+    }
+    if(n){
+        cout<<" "<<n;
+    }
+}
 int main(){
-    string s;
-    cin>>s;
-    if(s.length()>=8){
-        string i=s;
-        cout<<i.erase(i.size()-8,8)<<" kuti ";
-        while(s.length()>=8){
-            s.erase(0,1);
+    long long n;
+    int time=1;
+    while(cin>>n){
+        cout<<setw(4)<<time++<<".";
+        if(n==0){
+            cout<<" 0\n";
+            continue;
+        }
+        else{
+        solve(n);
+        cout<<endl;
         }
     }
-    else if(s.length()>=6){
-        string j=s;
-        cout<<j.erase(j.size()-6,6)<<" lakh ";
-        while(s.length()>=6){
-            s.erase(0,1);
-        }
-    }
-    else if(s.length()>=4){
-        string f=s;
-        cout<<f.erase(f.size()-4,4)<<" hajar ";
-        while(s.length()>=4){
-            s.erase(0,1);
-        }
-    }
-    else if(s.length()>=3){
-        string h=s;
-        cout<<h.erase(h.size()-3,3)<<" shata ";
-        while(s.length()>=3){
-            s.erase(0,1);
-        }
-    }
-    cout<<s<<endl;
 }
