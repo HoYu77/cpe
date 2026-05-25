@@ -1,4 +1,6 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<algorithm>
+#include<vector>
 using namespace std;
 int main(){
     int t;
@@ -6,18 +8,16 @@ int main(){
     while(t--){
         int n;
         cin>>n;
-        vector<int>a(n);
-        for(int i=0;i<n;i++){
-            cin>>a[i];
-        }
         int cnt=0;
-
+        vector<int> v(n);
         for(int i=0;i<n;i++){
-            for(int j=0;j<n-1;j++){
-                if(a[j]>a[j+1]){
-                    swap(a[j],a[j+1]);
-                    cnt++;
-                }
+            cin>>v[i];
+        }
+        for(int i=0;i<n;i++){
+            for(int j=0;j<i;j++){
+               if(v[j]>v[i]){
+                cnt++;
+               }
             }
         }
         cout<<"Optimal train swapping takes "<<cnt<<" swaps."<<endl;
