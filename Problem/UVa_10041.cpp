@@ -1,23 +1,25 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<algorithm>
+#include<vector>
 using namespace std;
 int main(){
-    int n;
-    cin>>n;
-    while(n--){
     int t;
     cin>>t;
-
-    vector<int> num(t);
-
-    for(int i=0;i<t;i++){
-       cin>>num[i];
+    while(t--){
+        int n;
+        cin>>n;
+        vector<int> num(n);
+        for(int i=0;i<n;i++){
+            cin>>num[i];
+        }
+        
+        sort(num.begin(),num.end());
+        
+        int mid=num[n/2];
+        int ans=0;
+        for(int i=0;i<n;i++){
+            ans+=abs(mid-num[i]);
+        }
+        cout<<ans<<endl;
     }
-    sort(num.begin(),num.end());
-    int mid=num[t/2];
-    int a=0;
-    for(int i=0;i<t;i++){
-        a=a+abs(num[i]-mid);
-    }
-    cout<<a<<endl;
-   }
 }
