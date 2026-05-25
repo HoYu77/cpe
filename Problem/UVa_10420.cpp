@@ -1,21 +1,18 @@
 #include<iostream>
-#include<string>
-#include<vector>
-#include<algorithm>
 #include<map>
+#include<algorithm>
 using namespace std;
 int main(){
     int t;
     cin>>t;
-    map<string,int> map;
+    map<string,int>mp;
     while(t--){
-        string country,name;
-        cin>>country;
-        string name;
-        getline(cin,name);
-        countries.push_back(country);
+        string s;
+        cin>>s;
+        mp[s]++;
+        getline(cin,s);
     }
-    sort(countries.begin(),countries.end());
-    
-
+    for(auto i:mp){
+        cout<<i.first<<" "<<i.second<<endl;
+    }
 }
