@@ -1,36 +1,33 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int main() {
-    long long n;
-    int tc = 1;
+int main(){
+    int t;
+    cin >> t;
+    for(int tc=1; tc<=t; tc++){
+        char c;
+        int n;
+        cin >> c >> c >> n;
 
-    while (cin >> n) {
-        cout << "Case " << tc++ << ": ";
+        vector<vector<long long>> a(n, vector<long long>(n));
+        bool ok = true;
 
-        if (n == 0) {
-            cout << "0\n";
-            continue;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                cin >> a[i][j];
+                if(a[i][j] < 0) ok = false;
+            }
         }
 
-        vector<long long> v;
-
-        for (long long i = 2; i * i <= n; i++) {
-            if (n % i == 0) {
-                long long j = n / i;
-                if (i != j) {
-                    v.push_back(i + j);
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(a[i][j] != a[n-1-i][n-1-j]){
+                    ok = false;
                 }
             }
         }
 
-        if (v.empty()) {
-            cout << "Impossible\n";
-        } else {
-            sort(v.begin(), v.end());
-            cout << v[0] << '\n';
-        }
+        cout << "Test #" << tc << ": ";
+        cout << (ok ? "Symmetric." : "Non-symmetric.") << "\n";
     }
-
-    return 0;
 }

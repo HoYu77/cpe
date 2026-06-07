@@ -1,12 +1,12 @@
-#include<bits/stdc++.h>
-using namespace std;
-int main() {
-    int T;
+ T;
     cin >> T;
     while (T--) {
         int m, n, q;
         cin >> m >> n >> q;
-        vector<string> g(m);
+        vect#include<bits/stdc++.h>
+using namespace std;
+int main() {
+    intor<string> g(m);
         for (int i = 0; i < m; i++) {
             cin >> g[i];
         }
